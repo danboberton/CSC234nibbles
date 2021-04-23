@@ -1,0 +1,6 @@
+// AbstractView Header
+
+class AbstractView {
+
+    
+};
