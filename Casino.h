@@ -10,7 +10,7 @@ namespace CSC234 {
 	public:
 		static void play(string);
 		virtual void start();
-		~Casino();
+		virtual ~Casino();
 
 	};
 }

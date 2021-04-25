@@ -1,6 +1,0 @@
-// AbstractView Header
-
-class AbstractView {
-
-    
-};
