@@ -16,3 +16,7 @@ bool Coord::setContain(char item){
     _contains = item;
     return true;
 }
+
+Item* Coord::getItem(){
+    return _item;
+}

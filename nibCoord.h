@@ -1,5 +1,6 @@
 // Coord header
 #pragma once
+#include "nibItem.h"
 
 namespace nibbles{
 
@@ -15,11 +16,14 @@ public:
     // Inits
     bool setContain(char);
 
+    // Get Set
+    Item* getItem();
+
 private:
     char _contains;
     int _x;
     int _y;
-    
+    Item* _item;
 };
 
 } // end namespace

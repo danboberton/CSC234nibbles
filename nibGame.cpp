@@ -12,19 +12,28 @@ nibbles::Game::Game(int boardX, int boardY, AbstractView* view){
     _boardX = boardX;
     _boardY = boardY;
     _view = view;
+    Coord* snakeStart = getCoord(5, 5);
+
+    _snake = new Snake(snakeStart, "Snake1");
 
     // Build a new game
     boardInit();
 
     view->disp("Game Built");
 
-    view->updateBoard(this);
+    
+
 
 }
 
 void nibbles::Game::run(){
 
+// Main run loop
+    while(!_collision){
 
+        _view->viewBoard(this);
+
+    }
 
 }
 
@@ -45,9 +54,6 @@ void nibbles::Game::boardInit(){
         }
 
 }
-
-
-    
 
 }
 

@@ -6,22 +6,22 @@ using namespace nibbles;
 
 TextView::TextView(){}
 
-// TODO write update board
-void TextView::updateBoard(Game* game){
+// TODO fix changes
+void TextView::viewBoard(const Board* &board){
     std::string buffer;
-    Coord** board = game->getBoard();
+    Coord** curBoard = board->getBoard();
 
     // Top Horizontal wall
-    buffer.append(getHLine(game->getX()));
+    buffer.append(getHLine(board->_sizeX));
 
-    for (int y = 0; y < game->getX(); y++){
+    for (int y = 0; y < board->_sizeX; y++){
 
         // Add initial vertical wall
         buffer.push_back(VWALL);
 
         // Add current coord state
-        for (int x = 0; x < game->getY(); x++){
-            if (board[y][x].free) {
+        for (int x = 0; x < board->_sizeY; x++){
+            if (curBoard[y][x].free) {
                 buffer.push_back(EMPTY);
             }
         }
@@ -32,7 +32,7 @@ void TextView::updateBoard(Game* game){
     }
 
     // Bottom Horizontal Wall
-    buffer.append(getHLine(game->getX()));
+    buffer.append(getHLine(board->_sizeX);
 
     printf("%s", buffer.c_str());
 }

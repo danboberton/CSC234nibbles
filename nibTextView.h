@@ -3,6 +3,7 @@
 
 #pragma once
 #include "nibAbstractView.h"
+#include "nibBoard.h"
 
 namespace nibbles{
 
@@ -12,7 +13,7 @@ public:
     // Constructors
     TextView();
 
-    void updateBoard(Game*);
+    void viewBoard(const Board*&);
     void disp(std::string);
 
 private:

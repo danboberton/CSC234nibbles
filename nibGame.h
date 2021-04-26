@@ -2,6 +2,7 @@
 #pragma once
 #include "nibAbstractView.h"
 #include "nibCoord.h"
+#include "nibSnake.h"
 
 namespace nibbles{
 
@@ -9,7 +10,7 @@ class AbstractView;
 
 class Game {
 
-    public:
+public:
      //Constructors
     Game ();
     Game (int ,int, AbstractView* );
@@ -24,14 +25,17 @@ class Game {
     int getX();
     int getY();
     Coord** getBoard();
+    Coord* getCoord(int, int);
 
-    private:
+private:
     int _boardX;
     int _boardY;
     int _speed;
     Coord** _board;
-
+    bool _collision;
     AbstractView* _view;
+    Snake* _snake;
+    int _points = 0;
 };
 
 }
