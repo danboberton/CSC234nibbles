@@ -7,6 +7,14 @@
 
 namespace nibbles{
 
+enum itemType{
+    snake,
+    fruit,
+    obstacle,
+    empty,
+    wall
+};
+
 class Item{
 
 public:
@@ -17,7 +25,8 @@ private:
     Coord* _coords;
     std::string _name;
     char _char;
-    int _size
+    int _size;
+    itemType _type;
 
 };
 

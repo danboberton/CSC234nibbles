@@ -19,7 +19,10 @@ public:
     // Get Set
     Item* getItem();
 
+    friend class TextView;
+
 private:
+    // TODO provide for multichars
     char _contains;
     int _x;
     int _y;

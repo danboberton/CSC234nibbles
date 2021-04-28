@@ -1,0 +1,48 @@
+SRC_DIR := /
+OBJ_DIR := .../obj
+SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
+OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
+LDFLAGS := ...
+CPPFLAGS := ...
+CXXFLAGS := ...
+
+# What does this do?
+#Target : Prereq
+#   Recepie (must have tab)
+main.exe: $(OBJ_FILES)
+   g++ $(LDFLAGS) -o $@ $^
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+   g++ $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
+Automatic dependency graph generation
+
+A "must" feature for most make systems. With GCC in can be done in a single pass as a side effect of the compilation by adding -MMD flag to CXXFLAGS and  -include $(OBJ_FILES:.o=.d)  to the end of the makefile body:
+
+CXXFLAGS += -MMD
+-include $(OBJ_FILES:.o=.d)
+
+# Simple Makefile:
+edit : main.o kbd.o command.o display.o \
+       insert.o search.o files.o utils.o
+        cc -o edit main.o kbd.o command.o display.o \
+                   insert.o search.o files.o utils.o
+
+main.o : main.c defs.h
+        cc -c main.c
+kbd.o : kbd.c defs.h command.h
+        cc -c kbd.c
+command.o : command.c defs.h command.h
+        cc -c command.c
+display.o : display.c defs.h buffer.h
+        cc -c display.c
+insert.o : insert.c defs.h buffer.h
+        cc -c insert.c
+search.o : search.c defs.h buffer.h
+        cc -c search.c
+files.o : files.c defs.h buffer.h command.h
+        cc -c files.c
+utils.o : utils.c defs.h
+        cc -c utils.c
+clean :
+        rm edit main.o kbd.o command.o display.o \
+           insert.o search.o files.o utils.o

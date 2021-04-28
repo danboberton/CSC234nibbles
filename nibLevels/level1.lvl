@@ -1,0 +1,34 @@
+# Level 1
+[Display]
+wall = '#'
+snakeHead = '@'
+snakeBody = '*'
+fruit = '$'
+empty = ' '
+
+[Level]
+name = "Level 1"
+map = """
+WWWWWWWWWWWWWWWWWWWWWW
+W                    W
+W                    W
+W                    W
+W                    W
+W                    W
+W                    W
+W                    W
+W                    W
+W                    W
+W                    W
+W                    W
+W                    W
+W                    W
+W                    W
+W                    W
+W                    W
+W                    W
+W                    W
+W                    W
+W                    W
+WWWWWWWWWWWWWWWWWWWWWW
+"""

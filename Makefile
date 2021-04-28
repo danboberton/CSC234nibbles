@@ -1,5 +1,26 @@
 # Makefile for Nibbles
+SRC_DIR :=
+OBJ_DIR := /obj
+SRC_FILES := $(wildcard *.cpp)
+OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
+# -wall prints all warning messages
+# -g
+LDFLAGS := -Wall
+CPPFLAGS :=
+CXXFLAGS :=
 
-nibbles: main.cpp Casino.cpp Nibbles.cpp
-	gcc -o nibbles -Wall -g main.cpp Casino.cpp Nibbles.cpp
+# OBJS := casino.o main.o nibAbstractView.o Nibbles.o nibBoard.o \
+nibCoord.o nibGame.o nibSnake.o nibTextView.o
 
+# SRC_FILES := $(wildcard /*.cpp)
+
+nibbles: $(OBJ_FILES)
+	gcc $(LDFLAGS) -o $@ $^
+
+# Automatic dependency graph generation
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	gcc $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
+
+
+clean :
+	rm nibbles $(OBJ_FILES)
