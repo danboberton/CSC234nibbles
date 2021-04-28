@@ -7,7 +7,7 @@ namespace CSC234 {
 
     // Constructors
     Nibbles::Nibbles() {
-        _view = new nibbles::TextView();
+        _view = new nibbles::TextView;
     };
 
     // Destructor

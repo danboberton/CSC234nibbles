@@ -6,14 +6,14 @@
 
 namespace nibbles{
 
-class AbstractView;
+class TextView;
 
 class Game {
 
 public:
      //Constructors
     Game ();
-    Game (int ,int, AbstractView* );
+    Game (int ,int, TextView* );
 
     // Inits
     void boardInit();
@@ -33,7 +33,7 @@ private:
     int _speed;
     Coord** _board;
     bool _collision;
-    AbstractView* _view;
+    TextView* _view;
     Snake* _snake;
     int _points = 0;
 };

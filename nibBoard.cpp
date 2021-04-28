@@ -15,14 +15,14 @@ Board::Board(int x, int y){
 // TODO check destructor
 Board::~Board(){}
 
-const Coord** Board::getBoard(){
+Coord** Board::getBoard(){
     return _board;
 }
 
 
 /* Populate the board with new coordinate points */
 void Board::boardInit(int _x, int _y){
-    Coord* curRow;
+    // Coord* curRow;
 
     _board = new Coord*[_x];
 
@@ -35,5 +35,6 @@ void Board::boardInit(int _x, int _y){
             _board[y][x] = *(new Coord(x, y));
 
         }
+    }
 
 }

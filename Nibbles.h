@@ -25,7 +25,7 @@ namespace CSC234 {
 
         void init();
         nibbles::Game* _game;
-        nibbles::AbstractView* _view;
+        nibbles::TextView* _view;
 
     };
 

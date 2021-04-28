@@ -9,15 +9,13 @@ namespace  nibbles{
 class Board{
 
 public:
-    static int _sizeX;
-    static int _sizeY;
+    int _sizeX;
+    int _sizeY;
     Coord** _board;
 
     // Constructors
     Board();
     Board(int, int);
-
-    
 
     // Destructor
     ~Board();
@@ -26,11 +24,9 @@ public:
     Coord** getBoard();
 
 private:
-    
-    
-    Item* _items;
 
+    Item* _items;
     void boardInit(int, int);
 
-}
+} ;
 } // end namespace

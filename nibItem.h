@@ -1,5 +1,5 @@
 // Board Item Header
-/* Superclass Interface for items placed on the board 
+/* Superclass Interface for items placed on the board
 */
 #pragma once
 #include "nibCoord.h"
@@ -7,18 +7,22 @@
 
 namespace nibbles{
 
+class Coord;
+
 class Item{
 
 public:
     virtual void collision() = 0;
 
+    // Constructors
+    Item();
 
-private:
+protected:
     Coord* _coords;
     std::string _name;
     char _char;
-    int _size
+    int _size;
 
-};
+}; // end class
 
 }// end namespace

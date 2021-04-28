@@ -7,12 +7,12 @@ using namespace nibbles;
 // Constructors
 nibbles::Game::Game(){};
 
-nibbles::Game::Game(int boardX, int boardY, AbstractView* view){
+nibbles::Game::Game(int boardX, int boardY, TextView* view){
 
     _boardX = boardX;
     _boardY = boardY;
     _view = view;
-    Coord* snakeStart = getCoord(5, 5);
+    Coord* snakeStart = new Coord(5, 5);
 
     _snake = new Snake(snakeStart, "Snake1");
 
@@ -31,15 +31,13 @@ void nibbles::Game::run(){
 // Main run loop
     while(!_collision){
 
-        _view->viewBoard(this);
-
     }
 
 }
 
 /* Populate the board with new coordinate points */
 void nibbles::Game::boardInit(){
-    Coord* curRow;
+    // Coord* curRow;
 
     _board = new Coord*[_boardX];
 

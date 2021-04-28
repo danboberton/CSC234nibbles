@@ -7,13 +7,17 @@
 
 namespace nibbles{
 
-class TextView : public AbstractView {
+class Board;
+class AbstractView;
+
+class TextView
+{
 
 public:
     // Constructors
     TextView();
 
-    void viewBoard(const Board*&);
+    void viewBoard(Board*);
     void disp(std::string);
 
 private:
