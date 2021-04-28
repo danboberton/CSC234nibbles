@@ -21,13 +21,13 @@ public:
     virtual void collision() = 0;
 
 
-private:
+protected:
     Coord* _coords;
     std::string _name;
     char _char;
     int _size;
     itemType _type;
 
-};
+}; // end class
 
 }// end namespace

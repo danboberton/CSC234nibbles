@@ -4,6 +4,8 @@
 
 namespace nibbles{
 
+class Item;
+
 class Coord{
 
 public:

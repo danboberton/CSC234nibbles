@@ -12,6 +12,7 @@ class Board{
 public:
     static int _sizeX;
     static int _sizeY;
+    Coord** _board;
 
     // Constructors
     Board();

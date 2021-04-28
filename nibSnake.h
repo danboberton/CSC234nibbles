@@ -13,7 +13,7 @@ enum absDir{
     left
 };
 
-class Snake : Item {
+class Snake : public Item {
 
 public:
     // Constructors
@@ -36,8 +36,9 @@ private:
     Coord* _snakeHead;
     Coord _snakeTail[400];
     absDir _dir;
-
+    int _length;
     void cleanTail();
+
 
 
 };
