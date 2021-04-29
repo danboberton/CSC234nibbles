@@ -13,7 +13,7 @@ enum absDir{
     left
 };
 
-class Snake : Item {
+class Snake : public Item {
 
 public:
     // Constructors
@@ -28,18 +28,17 @@ public:
 
     // Get Sets
     void setHead(Coord*);
-    Coord* getSnake();
     
 
 private:
-    std::string _name;
     int _length;
-    const int INIT_LENGTH = 1;
     Coord* _snakeHead;
-    Coord _snakeTail[400];
     absDir _dir;
 
     void cleanTail();
+
+    // Config
+    const int INIT_LENGTH = 1;
 
 
 };

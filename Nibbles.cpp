@@ -1,3 +1,12 @@
+/*
+
+Nibbles
+
+
+**/
+
+
+
 #include "Nibbles.h"
 #include <iostream>
 #include "nibTextView.h"

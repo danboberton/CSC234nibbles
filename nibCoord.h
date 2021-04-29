@@ -9,22 +9,25 @@ class Item;
 class Coord{
 
 public:
+    int _x;
+    int _y;
     bool free = true;
 
     // Constructors
     Coord();
     Coord(int, int);
+    Coord(int, int, Item*);
 
     // Inits
     bool setContain(char);
 
     // Get Set
     Item* getItem();
+    bool setItem(Item*);
 
 private:
     char _contains;
-    int _x;
-    int _y;
+    
     Item* _item;
 };
 

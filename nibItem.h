@@ -7,6 +7,13 @@
 
 namespace nibbles{
 
+enum itemType{
+    empty,
+    snake,
+    fruit,
+    obsticle
+};
+
 // Forward declaration
 class Coord;
 
@@ -23,14 +30,20 @@ public:
     // Constructors
     Item();
 
+    // Destructor
+    virtual ~Item();
+
     // Virtual Interface Functions
-    virtual void collision() = 0;
+    virtual void collision();           // What do do if collision with an item
+    virtual Coord* getPosition();       // Array of Coords to return when board updates
+    virtual itemType getType();
+    virtual char getChar();
 
 protected:
     Coord* _coords;
     std::string _name;
     char _char;
-    int _size;
+    itemType _type;
 
 };
 

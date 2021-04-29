@@ -6,27 +6,27 @@
 using namespace nibbles;
 
 TextView::TextView(){
-    
+
 }
 
-// TODO fix changes
 void TextView::viewBoard(Board* const board){
     std::string buffer;
     Coord** curBoard = board->getBoard();
+    Item* curItem;
 
     // Top Horizontal wall
     buffer.append(getHLine(board->_sizeX));
 
-    for (int y = 0; y < board->_sizeX; y++){
+    for (int y = 0; y < board->_sizeY; y++){
 
         // Add initial vertical wall
         buffer.push_back(VWALL);
 
         // Add current coord state
-        for (int x = 0; x < board->_sizeY; x++){
-            if (curBoard[y][x].free) {
-                buffer.push_back(EMPTY);
-            }
+        for (int x = 0; x < board->_sizeX; x++){
+            curItem = curBoard[y][x].getItem();
+            buffer.push_back(curItem->getChar());
+            
         }
 
         // Add right wall and line return

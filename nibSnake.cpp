@@ -9,11 +9,14 @@ Snake::Snake(){
 
 }
 
+// TODO snake needs to have Coords
 Snake::Snake(Coord* startCoord, std::string name){
     _length = INIT_LENGTH;
     _name = name;
     _snakeHead = startCoord;
     _dir = right;
+    _type = snake;
+    _char = '@';
 }
 
 // TODO fix
@@ -31,17 +34,3 @@ void Snake::setHead(Coord* head){
 
 }
 
-/* Returns all active snake coordinates */
-Coord* Snake::getSnake(){
-    Coord* retArr[_length];
-    Coord* curCoord = _snakeTail;
-
-    for (int i = 0; i < _length; i++){
-        retArr[i] = curCoord;
-        curCoord ++;
-    }
-
-    // BS
-    return (new Coord());
-
-}

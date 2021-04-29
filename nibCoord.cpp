@@ -10,6 +10,11 @@ Coord::Coord(int x, int y){
     _x = x;
     _y = y;
 }
+Coord::Coord(int x, int y, Item* item){
+    _x = x;
+    _y = y;
+    _item = item;
+}
 
 bool Coord::setContain(char item){
 
@@ -19,4 +24,9 @@ bool Coord::setContain(char item){
 
 Item* Coord::getItem(){
     return _item;
+}
+
+bool Coord::setItem(Item* item){
+    _item = item;
+    return true;
 }
