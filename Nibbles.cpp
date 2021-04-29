@@ -3,12 +3,16 @@
 #include "nibTextView.h"
 using namespace CSC234;
 
+typedef nibbles::TextView TextView;
+typedef nibbles::AbstractView AbsView;
+
 namespace CSC234 {
 
     // Constructors
     Nibbles::Nibbles() {
-        _view = new nibbles::TextView();
-    };
+        TextView* textView = new nibbles::TextView();
+        _view = dynamic_cast<AbsView*>(textView);
+    }
 
     // Destructor
     Nibbles::~Nibbles(){}
@@ -16,10 +20,6 @@ namespace CSC234 {
     Nibbles* Nibbles::makeGame() {
             return new Nibbles();
     }
-
-    void Nibbles::init() {
-        // TODO build init
-    };
 
     void Nibbles::start(){
         _view->disp("Welcome to NIBBLES!");

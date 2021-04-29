@@ -3,10 +3,12 @@
 #include "nibAbstractView.h"
 #include "nibCoord.h"
 #include "nibSnake.h"
+#include "nibBoard.h"
 
 namespace nibbles{
 
 class AbstractView;
+class Board;
 
 class Game {
 
@@ -24,14 +26,12 @@ public:
     // Get Sets
     int getX();
     int getY();
-    Coord** getBoard();
+    Board* getBoard();
     Coord* getCoord(int, int);
 
 private:
-    int _boardX;
-    int _boardY;
     int _speed;
-    Coord** _board;
+    Board* _board;
     bool _collision;
     AbstractView* _view;
     Snake* _snake;

@@ -3,18 +3,22 @@
 
 #pragma once
 #include "nibAbstractView.h"
-#include "nibBoard.h"
+
 
 namespace nibbles{
 
-class TextView : public AbstractView {
+// Forward declaration
+class Board;
+
+class TextView : public AbstractView
+{
 
 public:
     // Constructors
     TextView();
 
-    void viewBoard(const Board*&);
-    void disp(std::string);
+    virtual void viewBoard(Board* const);
+    virtual void disp(std::string);
 
 private:
 

@@ -1,13 +1,16 @@
 // Text View Implementation
 #include "nibTextView.h"
 #include <string>
+#include "nibBoard.h"
 
 using namespace nibbles;
 
-TextView::TextView(){}
+TextView::TextView(){
+    
+}
 
 // TODO fix changes
-void TextView::viewBoard(const Board* &board){
+void TextView::viewBoard(Board* const board){
     std::string buffer;
     Coord** curBoard = board->getBoard();
 
@@ -32,7 +35,7 @@ void TextView::viewBoard(const Board* &board){
     }
 
     // Bottom Horizontal Wall
-    buffer.append(getHLine(board->_sizeX);
+    buffer.append(getHLine(board->_sizeX));
 
     printf("%s", buffer.c_str());
 }

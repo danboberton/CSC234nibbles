@@ -16,8 +16,9 @@ Snake::Snake(Coord* startCoord, std::string name){
     _dir = right;
 }
 
+// TODO fix
 bool Snake::moveSnake(absDir direction){
-
+    return true;
 }
 
 // TODO implement
@@ -39,5 +40,8 @@ Coord* Snake::getSnake(){
         retArr[i] = curCoord;
         curCoord ++;
     }
+
+    // BS
+    return (new Coord());
 
 }

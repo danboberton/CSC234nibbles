@@ -32,6 +32,8 @@ public:
     
 
 private:
+    std::string _name;
+    int _length;
     const int INIT_LENGTH = 1;
     Coord* _snakeHead;
     Coord _snakeTail[400];

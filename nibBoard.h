@@ -4,33 +4,33 @@
 #include "nibItem.h"
 #include "nibTextView.h"
 
-namespace  nibbles{
+
+namespace nibbles{
 
 class Board{
 
 public:
-    static int _sizeX;
-    static int _sizeY;
-    Coord** _board;
 
     // Constructors
     Board();
     Board(int, int);
 
-    
 
     // Destructor
     ~Board();
 
     // Get Set
     Coord** getBoard();
+    Coord* getCoord(int, int);
+    friend class TextView;
 
 private:
     
-    
+    Coord** _board;
+    int _sizeX;
+    int _sizeY;
     Item* _items;
+    void boardInit();
 
-    void boardInit(int, int);
-
-}
+};
 } // end namespace
