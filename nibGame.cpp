@@ -1,6 +1,7 @@
 // nibGame Implementation
 
 #include "nibGame.h"
+#include <ctime>
 
 using namespace nibbles;
 
@@ -18,14 +19,17 @@ nibbles::Game::Game(int boardX, int boardY, AbstractView* view){
     view->viewBoard(_board);
 
     // Make a snake and add it to the board;
-    _snake = new Snake(_board->getCoord(5, 5), "Snake 1");
-    _board->addItem(dynamic_cast<Item*>(_snake));
+    addItem(new Snake(_board->getCoord(5, 5), "Snake 1"));
+    addItem(new Fruit(_board->getCoord(10, 10), "Fruit 1"));
+    
 
-    view->disp("Snake Built");
+    view->disp("Snake and Fruit Built");
 
     _board->updateBoard();
 
     view->viewBoard(_board);
+
+    run();
 
 
 
@@ -35,7 +39,48 @@ nibbles::Game::Game(int boardX, int boardY, AbstractView* view){
 
 void nibbles::Game::run(){
 
-// Main run loop
+// std::clock_t start;
+// double duration;
+// start = std::clock();
+// int key;
+
+// // Play until game is over
+// while (!_gameOver){
+
+//     // Run timer
+//     while (duration < _speed) {
+
+// /* 
+// KEY_UP 72
+// KEY_DOWN 80
+// KEY_LEFT 75
+// KEY_RIGHT 77
+// */
+
+//         // Await player input
+//         while (key = getc() != NULL ){
+
+//             switch (key){
+//                 case: 72
+//                     _view->disp("Up!");
+//                     break;
+//                 case: 80
+//                     _view->disp("Down!");
+//                     break;
+//                 case: 75
+//                     _view->disp("Left!");
+//                     break;
+//                 case: 77
+//                     _view->disp("Right!");
+//                     break;
+//             }
+
+//         }
+
+//         duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
+//     }
+
+// }
 
 }
 
@@ -43,3 +88,7 @@ Board* Game::getBoard(){
     return _board;
 }
 
+// Helper Functions
+void Game::addItem(Item* item){
+    _board->addItem(item);
+}

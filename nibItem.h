@@ -38,12 +38,14 @@ public:
     virtual Coord* getPosition();       // Array of Coords to return when board updates
     virtual itemType getType();
     virtual char getChar();
+    virtual int getSize();
 
 protected:
     Coord* _coords;
     std::string _name;
     char _char;
     itemType _type;
+    int _size;
 
 };
 

@@ -59,37 +59,30 @@ void Board::updateBoard(){
 
     Item* curItem = _items;
     Coord* itemCoords;
-    Coord   curCoord;
-    Coord   boardCoord;
+    Coord* boardCoord;
 
     // Cycle through each item and get item positions
-    while(curItem != NULL){
+    for (int i = 0; i < _numItems; i++){
         itemCoords = curItem->getPosition();
 
-        // Cycle through each coord of 
-        while(itemCoords != NULL){
+        // Cycle through each coord returned from item's getPosition()
+        for (int c = 0; c < curItem->getSize(); c++){
             
             // Get board coordinate, where the item is
-            boardCoord = _coords[curCoord._y][curCoord._x];
+            boardCoord = getCoord(itemCoords->_y, itemCoords->_x);
             
             // If the board coordinate isn't empty there is a collision
-            if (boardCoord.getItem()->getType() != empty){
+            if (boardCoord->getItem()->getType() != empty){
 
                 // Execute Collision
-                boardCoord.getItem()->collision();
+                boardCoord->getItem()->collision();
                 // Maybe still set the item
             } else {
                 // The space is empty, set item.
 
-                boardCoord.setItem(curItem);
+                boardCoord->setItem(curItem);
 
             }
-
-
-
-
-
-
 
             itemCoords++;
         }

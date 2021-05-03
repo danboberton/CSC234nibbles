@@ -17,6 +17,10 @@ Snake::Snake(Coord* startCoord, std::string name){
     _dir = right;
     _type = snake;
     _char = '@';
+    _coords = new Coord[100];   // This will need to be updated for variable size 
+    _coords[0] = *(startCoord);
+    _size = 1;
+
 }
 
 // TODO fix

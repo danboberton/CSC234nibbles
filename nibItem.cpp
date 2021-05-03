@@ -37,3 +37,7 @@ Coord* Item::getPosition(){
 char Item::getChar(){
     return _char;
 }
+
+int Item::getSize(){
+    return _size;
+}

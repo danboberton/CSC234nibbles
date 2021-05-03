@@ -4,6 +4,7 @@
 #include "nibCoord.h"
 #include "nibSnake.h"
 #include "nibBoard.h"
+#include "nibFruit.h"
 
 namespace nibbles{
 
@@ -22,6 +23,7 @@ public:
 
     // Run
     void run();
+    void gameOver();
 
     // Get Sets
     int getX();
@@ -30,12 +32,16 @@ public:
     Coord* getCoord(int, int);
 
 private:
-    int _speed;
+    double _speed = 1000;
     Board* _board;
     bool _collision;
     AbstractView* _view;
     Snake* _snake;
     int _points = 0;
+    bool _gameOver = false;
+
+    // Helper Functions
+    void addItem(Item*);
 };
 
 }
