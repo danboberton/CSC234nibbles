@@ -39,48 +39,6 @@ nibbles::Game::Game(int boardX, int boardY, AbstractView* view){
 
 void nibbles::Game::run(){
 
-// std::clock_t start;
-// double duration;
-// start = std::clock();
-// int key;
-
-// // Play until game is over
-// while (!_gameOver){
-
-//     // Run timer
-//     while (duration < _speed) {
-
-// /* 
-// KEY_UP 72
-// KEY_DOWN 80
-// KEY_LEFT 75
-// KEY_RIGHT 77
-// */
-
-//         // Await player input
-//         while (key = getc() != NULL ){
-
-//             switch (key){
-//                 case: 72
-//                     _view->disp("Up!");
-//                     break;
-//                 case: 80
-//                     _view->disp("Down!");
-//                     break;
-//                 case: 75
-//                     _view->disp("Left!");
-//                     break;
-//                 case: 77
-//                     _view->disp("Right!");
-//                     break;
-//             }
-
-//         }
-
-//         duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
-//     }
-
-// }
 
 }
 
