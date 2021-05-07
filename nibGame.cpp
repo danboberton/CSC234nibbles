@@ -1,7 +1,10 @@
 // nibGame Implementation
 
+
 #include "nibGame.h"
 #include <ctime>
+#include <Windows.h>
+
 
 using namespace nibbles;
 
@@ -39,6 +42,22 @@ nibbles::Game::Game(int boardX, int boardY, AbstractView* view){
 
 void nibbles::Game::run(){
 
+    const int SLEEP_TIME = 1000;
+    int testCounter = 0;
+    // main game loop
+    while (!_gameOver) {
+        
+        Sleep(SLEEP_TIME);
+        system("cls");  // Clear screen
+
+        printf("Draw #%d\n", testCounter);
+        _view->viewBoard(_board);
+
+        _snake->moveSnake(right);
+
+        testCounter++;
+
+    }
 
 }
 

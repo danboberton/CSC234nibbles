@@ -3,6 +3,7 @@
 #include <string>
 #include "nibCoord.h"
 #include "nibItem.h"
+#include <vector>
 
 namespace nibbles{
 
@@ -21,21 +22,26 @@ public:
     Snake(Coord*, std::string);
 
     // Game
-    bool moveSnake(absDir);
+    void moveSnake(absDir);
     void snakeEat(int);
 
     void collision(){};
 
     // Get Sets
     void setHead(Coord*);
+
+
     
 
 private:
     int _length;
     Coord* _snakeHead;
     absDir _dir;
+    const int SNAKE_ARR_SIZE = 200;
 
+    void insertCoord(Coord*);
     void cleanTail();
+    Coord* getNewPos(absDir);
 
     // Config
     const int INIT_LENGTH = 1;

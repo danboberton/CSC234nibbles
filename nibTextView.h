@@ -31,6 +31,9 @@ private:
 
     std::string getHLine(int);
 
+    void cls();
+    void setCursorPosition(int, int);
+
 };
 
 }
