@@ -22,7 +22,8 @@ nibbles::Game::Game(int boardX, int boardY, AbstractView* view){
     view->viewBoard(_board);
 
     // Make a snake and add it to the board;
-    addItem(new Snake(_board->getCoord(5, 5), "Snake 1"));
+    _snake = new Snake(_board->getCoord(5, 5), "Snake 1");
+    addItem(_snake);
     addItem(new Fruit(_board->getCoord(10, 10), "Fruit 1"));
     
 
@@ -36,9 +37,7 @@ nibbles::Game::Game(int boardX, int boardY, AbstractView* view){
 
 
 
-}// Coord* snakeStart = _board->getCoord(5, 5);
-
-    // _snake = new Snake(snakeStart, "Snake1");
+}
 
 void nibbles::Game::run(){
 

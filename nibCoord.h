@@ -24,10 +24,11 @@ public:
     // Get Set
     Item* getItem();
     bool setItem(Item*);
+    int getX();
+    int getY();
 
 private:
     char _contains;
-    
     Item* _item;
 };
 

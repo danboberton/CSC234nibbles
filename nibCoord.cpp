@@ -30,3 +30,11 @@ bool Coord::setItem(Item* item){
     _item = item;
     return true;
 }
+
+int Coord::getX() {
+    return this->_x;
+}
+
+int Coord::getY() {
+    return this->_y;
+}

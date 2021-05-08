@@ -34,7 +34,6 @@ public:
     
 
 private:
-    int _length;
     Coord* _snakeHead;
     absDir _dir;
     const int SNAKE_ARR_SIZE = 200;
