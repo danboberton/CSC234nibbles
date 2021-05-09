@@ -34,7 +34,8 @@ public:
     
 
 private:
-    Coord* _snakeHead;
+    const char SNAKE_HEAD = '@';
+    const char SNAKE_TAIL = '*';
     absDir _dir;
     const int SNAKE_ARR_SIZE = 200;
 

@@ -29,16 +29,18 @@ public:
     bool addItem(Item*);
 
 private:
+
+    // Config
+    const int MAX_ITEMS = 10;
     
     Coord** _coords;
     int _sizeX;
     int _sizeY;
-    Item* _items;
+    Item** _items; // Array of item pointers
     int _numItems;
     void boardInit();
 
-    // Config
-    const int MAX_ITEMS = 10;
+    
 
 };
 } // end namespace

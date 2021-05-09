@@ -11,7 +11,6 @@ Item::Item(){
 _type = empty;
 _char = ' ';
 
-
 }
 
 // Destructors

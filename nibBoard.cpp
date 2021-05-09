@@ -11,7 +11,7 @@ Board::Board(int x, int y){
     _sizeX = x;
     _sizeY = y;
     
-    _items = new Item[MAX_ITEMS];
+    _items = new Item*[MAX_ITEMS];
 
     boardInit();
 }
@@ -34,7 +34,7 @@ Coord* Board::getCoord(int x, int y){
 
 /* Populate the board with initial coordinate points */
 void Board::boardInit(){
-    Coord* curRow;
+    Coord* curRow = nullptr;
 
     _coords = new Coord*[_sizeX];
 
@@ -57,16 +57,18 @@ void Board::boardInit(){
 
 void Board::updateBoard(){
 
-    Item* curItem = _items;
+    Item* curItem;
     Coord* itemCoords;
     Coord* boardCoord;
 
     // Cycle through each item and get item positions
     for (int i = 0; i < _numItems; i++){
+        curItem = _items[i];
         itemCoords = curItem->getPosition();
 
         // Cycle through each coord returned from item's getPosition()
-        for (int c = 0; c < curItem->getSize(); c++){
+        while (itemCoords != NULL) {
+        // for (int c = 0; c < curItem->getSize(); c++){
             
             // Get board coordinate, where the item is
             boardCoord = getCoord(itemCoords->_y, itemCoords->_x);
@@ -84,17 +86,16 @@ void Board::updateBoard(){
 
             }
 
-            itemCoords++;
+            itemCoords = itemCoords->nextCoord();
         }
 
-        curItem++;
     }
 
 }
 
 bool Board::addItem(Item* item){
 
-_items[_numItems] = *(item);
+_items[_numItems] = item;
 _numItems++;
 
 return true;

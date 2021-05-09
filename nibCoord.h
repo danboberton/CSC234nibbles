@@ -17,6 +17,8 @@ public:
     Coord();
     Coord(int, int);
     Coord(int, int, Item*);
+    ~Coord();
+    Coord(const Coord& copy);
 
     // Inits
     bool setContain(char);
@@ -26,10 +28,13 @@ public:
     bool setItem(Item*);
     int getX();
     int getY();
+    Coord* nextCoord();
+    void setNext(Coord*);
 
 private:
     char _contains;
     Item* _item;
+    Coord* _nextCoord = nullptr;
 };
 
 } // end namespace

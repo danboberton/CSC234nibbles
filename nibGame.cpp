@@ -53,6 +53,7 @@ void nibbles::Game::run(){
         _view->viewBoard(_board);
 
         _snake->moveSnake(right);
+        _board->updateBoard();
 
         testCounter++;
 

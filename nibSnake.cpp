@@ -14,12 +14,10 @@ Snake::Snake(){
 Snake::Snake(Coord* startCoord, std::string name){
     _size = INIT_LENGTH;
     _name = name;
-    _snakeHead = startCoord;
     _dir = right;
     _type = snake;
     _char = '@';
-    _coords = new Coord[SNAKE_ARR_SIZE];
-    _coords[0] = *startCoord;
+    _coords = new Coord(*startCoord);
 
 }
 
@@ -27,10 +25,9 @@ Snake::Snake(Coord* startCoord, std::string name){
 void Snake::moveSnake(absDir direction){
     
     Coord* newHead = getNewPos(direction);
-    _snakeHead = newHead;
 
     this->insertCoord(newHead);
-    // cleanTail();
+    cleanTail();
 
 }
 
@@ -48,8 +45,8 @@ void Snake::setHead(Coord* head){
 Coord* Snake::getNewPos(absDir direction) {
 
     Coord* result = NULL;
-    int curX = _snakeHead->_x;
-    int curY = _snakeHead->_y;
+    int curX = _coords->_x;
+    int curY = _coords->_y;
     int newX = curX;
     int newY = curY;
 
@@ -74,23 +71,36 @@ Coord* Snake::getNewPos(absDir direction) {
 /* Delete old coords that are beyond length*/
 void Snake::cleanTail() {
 
-    for (int i = 0; i < SNAKE_ARR_SIZE; i++) {
+    Coord* curCoord = _coords;
+    Coord* buffer = NULL;
 
-        // if beyond length clear out
-        if (!((i + 1) < _size)) {
-            
-        }
+    // Find end of valid coords based on _size
+    for (int i = 1; i < _size; i++) {
+
+        curCoord = curCoord->nextCoord();
+
     }
+
+    // Set the next link as NULL after valid coords
+    buffer = curCoord;
+    curCoord = curCoord->nextCoord();
+    buffer->setNext(nullptr);
+    while (curCoord != NULL) {
+
+        buffer = curCoord->nextCoord();
+        delete curCoord;
+
+        curCoord = buffer;
+    }
+
 
 }
 
 void Snake::insertCoord(Coord* newCoord) {
 
-    // Bump all array items down
-    for (int i = _size; i > 0; i--) {
-        _coords[i] = _coords[i - 1];
-    }
+    newCoord->setNext(_coords);
+    _coords->setContain(SNAKE_TAIL);
+    _coords = newCoord;
 
-    _coords[0] = *newCoord;
 }
 

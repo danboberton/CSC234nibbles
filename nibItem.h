@@ -41,7 +41,7 @@ public:
     virtual int getSize();
 
 protected:
-    Coord* _coords;
+    Coord* _coords; // root of linked list
     std::string _name;
     char _char;
     itemType _type;

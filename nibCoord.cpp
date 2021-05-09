@@ -9,13 +9,27 @@ Coord::Coord(){}
 Coord::Coord(int x, int y){
     _x = x;
     _y = y;
+
 }
 Coord::Coord(int x, int y, Item* item){
     _x = x;
     _y = y;
     _item = item;
 }
+Coord::~Coord(){
 
+    _contains = NULL;
+    _item = nullptr;
+    _nextCoord = nullptr;
+    _x = NULL;
+    _y = NULL;
+    free = NULL;
+
+}
+Coord::Coord(const Coord& copy) {
+    _x = copy._x;
+    _y = copy._y;
+}
 bool Coord::setContain(char item){
 
     _contains = item;
@@ -37,4 +51,15 @@ int Coord::getX() {
 
 int Coord::getY() {
     return this->_y;
+}
+
+Coord* Coord::nextCoord() {
+
+    return _nextCoord;
+}
+
+void Coord::setNext(Coord* next) {
+
+    _nextCoord = next;
+
 }
