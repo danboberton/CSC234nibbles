@@ -27,6 +27,9 @@ public:
     // Game Functions
     void updateBoard();
     bool addItem(Item*);
+    void clearItem(Item*);
+    void clearCoord(Coord*);
+    void updateItem(Item*);
 
 private:
 
@@ -39,6 +42,7 @@ private:
     Item** _items; // Array of item pointers
     int _numItems;
     void boardInit();
+    Item* emptyItem = new Item();
 
     
 

@@ -45,7 +45,7 @@ void Board::boardInit(){
         // Board row init
         for (int x = 0; x < _sizeX; x++) {
             // Default items are empty
-            _coords[y][x] = *(new Coord(x, y, (new Item())));
+            _coords[y][x] = *(new Coord(x, y, emptyItem));
 
         }
 
@@ -71,7 +71,7 @@ void Board::updateBoard(){
         // for (int c = 0; c < curItem->getSize(); c++){
             
             // Get board coordinate, where the item is
-            boardCoord = getCoord(itemCoords->_y, itemCoords->_x);
+            boardCoord = getCoord(itemCoords->_x, itemCoords->_y);
             
             // If the board coordinate isn't empty there is a collision
             if (boardCoord->getItem()->getType() != empty){
@@ -89,6 +89,10 @@ void Board::updateBoard(){
             itemCoords = itemCoords->nextCoord();
         }
 
+        if (curItem->getType() == snake) {
+            updateItem(curItem);
+        }
+
     }
 
 }
@@ -99,5 +103,57 @@ _items[_numItems] = item;
 _numItems++;
 
 return true;
+
+}
+
+void Board::clearItem(Item* item) {
+    
+}
+
+void Board::clearCoord(Coord* coord) {
+
+}
+
+/* Find any coords referencing this item and reset them if they're not current*/
+void Board::updateItem(Item* item) {
+
+    Coord* curCoord;
+    Coord* itemCoord;
+    bool goodCoord = false;
+    
+
+    // Iterate rows
+    for (int y = 0; y < _sizeY; y++) {
+
+        // Iterate columns
+        for (int x = 0; x < _sizeX; x++) {
+            
+            curCoord = &_coords[y][x];
+
+            // Found the item?
+            if (curCoord->getItem() == item) {
+
+                itemCoord = item->getPosition();
+
+                // Check all coords in item
+                while (itemCoord != NULL && goodCoord != true) {
+
+                    // Match?
+                    if (itemCoord->getX() == curCoord->getX() && itemCoord->getY() == curCoord->getY()) {
+                        goodCoord = true;
+                    }
+
+                    itemCoord = itemCoord->nextCoord();
+                }
+
+                if (goodCoord == false) {
+                    curCoord->setItem(emptyItem);
+                    curCoord->setContain(' ');
+                }
+            } // end found item
+
+        } // end column iterate
+
+    } // end row iterate
 
 }
